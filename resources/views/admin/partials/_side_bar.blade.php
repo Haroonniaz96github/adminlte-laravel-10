@@ -95,6 +95,53 @@
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-alt"></i>
+                        <p>
+                            Manage Roznamchas
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('roznamchas.index') }}"
+                                class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user-alt"></i>
+                                <p>
+                                    Roznamcha
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('roznamchas.create') }}"
+                                class="nav-link {{ request()->is('admin/roznamchas/create') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user-alt"></i>
+                                <p>
+                                    Add Roznamcha
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.profile') }}"
+                                class="nav-link {{ request()->is('admin/profile-setting') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user-alt"></i>
+                                <p>
+                                    Update Profile
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('roles.index') }}"
+                                class="nav-link {{ request()->is('admin/roles') ? 'active' : '' }}"">
+                                  <i class="         nav-icon fas fa-user-tag"></i>
+                                <p>
+                                    Roles
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                   {{-- <li class="nav-item">
                       <a href="{{ route('setting.index') }}"

@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\MediaUploadController;
 use App\Http\Controllers\Admin\PermissionController;
-
+use App\Http\Controllers\RoznamchasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +56,10 @@ Route::group([
     Route::get('/profile-setting', [UsersController::class, 'profileSetting'])->name('user.profile');
     Route::post('/profile-setting', [UsersController::class, 'updateProfile'])->name('user.profile');
 
+    //Roznamchas Controller
+    Route::resource('roznamchas', RoznamchasController::class);
+    
+    
     //Roles Controller
     Route::resource('roles', RoleController::class);
     Route::post('get-roles',  [RoleController::class, 'getRoles'])->name('admin.getRoles');

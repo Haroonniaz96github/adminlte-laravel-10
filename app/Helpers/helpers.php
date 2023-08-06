@@ -2,6 +2,7 @@
 
 use App\Models\MediaUpload;
 use App\Models\StaticOption;
+use Illuminate\Support\Str;
 
 function get_static_option($key)
 {
@@ -117,4 +118,19 @@ function formatBytes($size, $precision = 2)
     $suffixes = array('', 'KB', 'MB', 'GB', 'TB');
 
     return round(pow(1024, $base - floor($base)), $precision) . ' ' . $suffixes[floor($base)];
+}
+
+function uploadFile($file, $file_path)
+{
+    if ($file) {
+        $extension = $file->getClientOriginalExtension();
+        $imageName = generateRandomImageName($extension);
+        $imagePath = $file->storeAs($file_path, $imageName, 'public');
+        return $imagePath;
+    }
+}
+
+function generateRandomImageName($extension)
+{
+    return Str::random(40) . '.' . $extension;
 }
